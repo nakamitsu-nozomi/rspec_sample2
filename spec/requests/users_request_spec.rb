@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
+  #一覧ページのテストコード
   describe "GET#index" do
     subject{get(users_path)}
     context "ユーザーが存在する時" do
@@ -16,6 +17,7 @@ RSpec.describe "Users", type: :request do
     end
   end
 
+  #showページのテストコード
   describe "GET#show" do
     subject{get(user_path(user_id))}
     context "ユーザーが存在する時" do
@@ -46,5 +48,14 @@ RSpec.describe "Users", type: :request do
       end
     end
   end
+
+  #新規投稿ページのテストコード
+    describe "GET#new" do
+      subject{get(new_user_path)}
+      it "リクエストが成功する" do
+         subject
+        expect(response).to have_http_status(:ok)
+      end
+    end
 
 end
