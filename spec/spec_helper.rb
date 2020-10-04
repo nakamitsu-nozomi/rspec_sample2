@@ -15,7 +15,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # テストが途中で失敗しても終了せず、最後までテストを実行して失敗したテストをリストアップする設定
-  config.define_derived_metadata do
+  config.define_derived_metadata do |meta|
     meta[:aggregate_failures] = true unless meta.key?(:aggregate_failures)
   end
   # rspec-expectations config goes here. You can use an alternate
